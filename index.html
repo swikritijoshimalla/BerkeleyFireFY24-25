@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Berkeley Fire Department - Vendor Analysis</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #000;
+      color: #f0f0f0;
+    }
+
+    nav {
+      background-color: #333;
+      color: white;
+      padding: 10px;
+      text-align: center;
+    }
+
+    nav a {
+      color: white;
+      margin: 10px;
+      text-decoration: none;
+      display: inline-block;
+    }
+
+    .tab {
+      display: none;
+      padding: 40px;
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+
+    .active {
+      display: block;
+    }
+
+    iframe {
+      width: 100%;
+      height: 600px;
+      border: none;
+    }
+
+    /* 📱 Mobile-friendly tweaks */
+    @media (max-width: 768px) {
+      nav a {
+        display: block;
+        margin: 10px 0;
+      }
+
+      .tab {
+        padding: 20px;
+      }
+
+      h1 {
+        font-size: 1.8em;
+      }
+
+      h2 {
+        font-size: 1.4em;
+      }
+
+      p {
+        font-size: 1em;
+      }
+
+      img {
+        max-width: 90%;
+        height: auto;
+      }
+    }
+  </style>
+
+  <!-- ✅ ArcGIS embed scripts -->
+  <script type="module" src="https://js.arcgis.com/calcite-components/1.0.0/calcite.esm.js"></script>
+  <script type="module" src="https://js.arcgis.com/4.29/"></script>
+  <script type="module" src="https://js.arcgis.com/4.29/@arcgis/core/widgets/EmbeddedMap.js"></script>
+
+  <script>
+    function showTab(tabId) {
+      const tabs = document.getElementsByClassName('tab');
+      for (let tab of tabs) tab.style.display = 'none';
+      document.getElementById(tabId).style.display = 'block';
+    }
+    window.onload = () => showTab('home');
+  </script>
+</head>
+
+<body>
+
+<nav>
+  <a href="#" onclick="showTab('home')">Home</a>
+  <a href="#" onclick="showTab('vendor-map')">Vendor Map</a>
+  <a href="#" onclick="showTab('vendors')">Vendors</a>
+  <a href="#" onclick="showTab('dashboard')">Dashboard</a>
+  <a href="#" onclick="showTab('about')">About</a>
+</nav>
+
+<div id="home" class="tab" style="
+  background-color: #1c1c1c; border-radius: 8px; box-shadow: 0 4px 20px rgba(0,0,0,0.4);
+">
+  <h1 style="font-size: 2.5em; margin-top: 0; color: #ed1212; text-align: center;">Berkeley Fire Department</h1>
+  <img src="BFD Batch.jpg" alt="Berkeley Fire Department" style="display: block; margin: 0 auto 30px; max-width: 100%; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.6);" />
+
+  <p style="font-size: 1.1em; line-height: 1.6; text-align: center;">
+    The Berkeley Fire Department serves the City of Berkeley, California, providing fire prevention, emergency medical services, and disaster response. The department operates multiple fire stations and handles thousands of emergency calls each year.
+    <br><br>
+    Berkeley is a dynamic city that, despite just ten square miles of land and seven square miles of water, commands a global presence. Celebrated for its legacy of academic excellence, research, cultural vibrancy, and free expression, Berkeley is home to a world-renowned university, over 50 public parks, and the largest public marina in the San Francisco Bay Area.
+  </p>
+
+  <ul style="list-style: none; padding: 0; text-align: center;">
+    <li style="margin: 20px 0;">
+      <a href="https://www.berkeleyfire.com/" target="_blank" style="background-color: #ed1212; color: #000; text-decoration: none; padding: 12px 24px; border-radius: 4px; display: inline-block; font-weight: bold;">
+        Official Berkeley Fire Department Website
+      </a>
+    </li>
+    <li>
+      <a href="https://berkeleyca.gov/safety-health/disaster-preparedness" target="_blank" style="background-color: #ed1212; color: #000; text-decoration: none; padding: 12px 24px; border-radius: 4px; display: inline-block; font-weight: bold;">
+        Emergency Services & Disaster Preparedness
+      </a>
+    </li>
+  </ul>
+</div>
+
+<div id="vendor-map" class="tab">
+  <h1>Vendor Locations Map</h1>
+  <iframe 
+    src="https://sdsugeo.maps.arcgis.com/apps/mapviewer/index.html?webmap=03a105c611bb40fd801a96e7ea25dc63"
+    title="Vendor Locations Map">
+  </iframe>
+</div>
+
+<div id="dashboard" class="tab" style="
+  background-color: #1c1c1c;
+  border-radius: 8px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.4);
+  text-align: center;
+">
+  <h1 style="font-size: 2.5em; margin-top: 0; color: #ffcc00;">Fiscal Year 24–25 Spending Dashboard</h1>
+
+  <div class='tableauPlaceholder' id='viz1752596449670' style='position: relative; margin-top: 30px; border-radius: 8px; overflow: hidden; box-shadow: 0 2px 12px rgba(0,0,0,0.6);'>
+    <noscript>
+      <a href='#'>
+        <img alt=' ' src='https://public.tableau.com/static/images/Fi/FireSpendingFY24-25Dashboard/FireSpendingFY24-25Dashboard/1_rss.png' style='border: none; width: 100%;' />
+      </a>
+    </noscript>
+    <object class='tableauViz' style='display:none;'>
+      <param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F'/> 
+      <param name='embed_code_version' value='3'/> 
+      <param name='site_root' value=''/>
+      <param name='name' value='FireSpendingFY24-25Dashboard/FireSpendingFY24-25Dashboard'/>
+      <param name='tabs' value='no'/>
+      <param name='toolbar' value='yes'/>
+      <param name='static_image' value='https://public.tableau.com/static/images/Fi/FireSpendingFY24-25Dashboard/FireSpendingFY24-25Dashboard/1.png'/>
+      <param name='animate_transition' value='yes'/>
+      <param name='display_static_image' value='yes'/>
+      <param name='display_spinner' value='yes'/>
+      <param name='display_overlay' value='yes'/>
+      <param name='display_count' value='yes'/>
+      <param name='language' value='en-US'/>
+    </object>
+  </div>
+
+  <script type='text/javascript'>
+    var divElement = document.getElementById('viz1752596449670');
+    var vizElement = divElement.getElementsByTagName('object')[0];
+    if (divElement.offsetWidth > 800) {
+      vizElement.style.width = '1000px';
+      vizElement.style.height = '827px';
+    } else if (divElement.offsetWidth > 500) {
+      vizElement.style.width = '100%';
+      vizElement.style.height = '827px';
+    } else {
+      vizElement.style.width = '100%';
+      vizElement.style.height = '1327px';
+    }
+    var scriptElement = document.createElement('script');
+    scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';
+    vizElement.parentNode.insertBefore(scriptElement, vizElement);
+  </script>
+</div>
+
+<div id="about" class="tab" style="
+  border-radius: 8px;
+  text-align: center;
+">
+  <img src="swikriti.jpg" alt="Swikriti Joshi" style="width: 150px; height: 150px; border-radius: 50%; object-fit: cover; border: 3px solid #ffcc00; margin-bottom: 20px;">
+  <h2 style="margin: 10px 0; font-size: 1.8em; color: #ffffff;">Swikriti Joshi</h2>
+  <p style="margin: 5px 0; font-size: 1.1em;">Big Data Analytics</p>
+  <p style="margin: 5px 0; font-size: 1.1em;">San Diego State University — Graduate Student</p>
+  <p style="margin: 5px 0; font-size: 1.1em;">
+    <a href="https://www.linkedin.com/in/swikritijoshi" target="_blank" 
+   style="color: #f4ec09; text-decoration: font-weight: bold;">
+  LinkedIn: www.linkedin.com/in/swikritijoshi
+</a>
+  </p>
+  <p style="margin: 5px 0; font-size: 1.1em; color: #ddd;">
+    Email: <a href="mailto:sjoshi2639@sdsu.edu" style="color: #ffffff; text-decoration: none;">sjoshi2639@sdsu.edu</a>
+<br><br><br><br>
+My data-driven research initiative focuses on the Berkeley Fire Department’s purchasing activity for Fiscal Year 2024-2025. The project explores real procurement data to identify all active vendors the department worked with during the fiscal year. Through detailed analysis, the project uncovers spending patterns, vendor relationships, and category-level trends.
+    <br><br>
+My goal is to provide actionable insights that can support more strategic decision-making and budget planning in future fiscal years. By making this information accessible and transparent, I aim to empower city planners, financial analysts, and community stakeholders with a clearer understanding of how public safety funds are allocated and spent.
+<br><br>
+Explore the data, understand the trends, and join me in building a smarter approach to municipal budgeting.
+  </p>
+
+</p>
+</div>
+
+</body>
+</html>
