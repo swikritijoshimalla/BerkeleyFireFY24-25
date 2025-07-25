@@ -79,6 +79,8 @@
   <script type="module" src="https://js.arcgis.com/calcite-components/1.0.0/calcite.esm.js"></script>
   <script type="module" src="https://js.arcgis.com/4.29/"></script>
   <script type="module" src="https://js.arcgis.com/4.29/@arcgis/core/widgets/EmbeddedMap.js"></script>
+  <!-- ✅ NEW ArcGIS Embeddable Map Component -->
+  <script type="module" src="https://js.arcgis.com/embeddable-components/4.33/arcgis-embeddable-components.esm.js"></script>
 
   <script>
     function showTab(tabId) {
@@ -100,26 +102,24 @@
   <a href="#" onclick="showTab('about')">About</a>
 </nav>
 
-<div id="home" class="tab" style="
-  background-color: #1c1c1c; border-radius: 8px; box-shadow: 0 4px 20px rgba(0,0,0,0.4);
-">
-  <h1 style="font-size: 2.5em; margin-top: 0; color: #ed1212; text-align: center;">Berkeley Fire Department</h1>
+<div id="home" class="tab" style="background-color: #1c1c1c; border-radius: 8px; box-shadow: 0 4px 20px rgba(0,0,0,0.4);">
+  <h1 style="font-size: 2.5em; margin-top: 0; color: #ffffff; text-align: center;">Berkeley Fire Department</h1>
   <img src="berkeleylogo.jpg" alt="Berkeley Fire Department" style="display: block; margin: 0 auto 30px; max-width: 100%; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.6);" />
 
   <p style="font-size: 1.1em; line-height: 1.6; text-align: center;">
-    The Berkeley Fire Department serves the City of Berkeley, California, providing fire prevention, emergency medical services, and disaster response. The department operates multiple fire stations and handles thousands of emergency calls each year.
+    The Berkeley Fire Department serves the City of Berkeley, California, providing fire prevention, emergency medical services, and disaster response. The department operates multiple fire stations and responds to thousands of emergency calls each year.
     <br><br>
-    Berkeley is a dynamic city that, despite just ten square miles of land and seven square miles of water, commands a global presence. Celebrated for its legacy of academic excellence, research, cultural vibrancy, and free expression, Berkeley is home to a world-renowned university, over 50 public parks, and the largest public marina in the San Francisco Bay Area.
+    Berkeley is a dynamic city that, despite having only ten square miles of land and seven square miles of water, commands a global presence. Celebrated for its legacy of academic excellence, research, cultural vibrancy, and free expression, it is home to a world-renowned university, more than 50 public parks, and the largest public marina in the San Francisco Bay Area.
   </p>
 
   <ul style="list-style: none; padding: 0; text-align: center;">
     <li style="margin: 20px 0;">
-      <a href="https://www.berkeleyfire.com/" target="_blank" style="background-color: #ed1212; color: #000; text-decoration: none; padding: 12px 24px; border-radius: 4px; display: inline-block; font-weight: bold;">
+      <a href="https://www.berkeleyfire.com/" target="_blank" style="background-color: #ffffff; color: #000; text-decoration: none; padding: 12px 24px; border-radius: 4px; display: inline-block; font-weight: bold;">
         Official Berkeley Fire Department Website
       </a>
     </li>
     <li>
-      <a href="https://berkeleyca.gov/safety-health/disaster-preparedness" target="_blank" style="background-color: #ed1212; color: #000; text-decoration: none; padding: 12px 24px; border-radius: 4px; display: inline-block; font-weight: bold;">
+      <a href="https://berkeleyca.gov/safety-health/disaster-preparedness" target="_blank" style="background-color: #ffffff; color: #000; text-decoration: none; padding: 12px 24px; border-radius: 4px; display: inline-block; font-weight: bold;">
         Emergency Services & Disaster Preparedness
       </a>
     </li>
@@ -127,20 +127,68 @@
 </div>
 
 <div id="vendor-map" class="tab">
-  <h1>Vendor Locations Map</h1>
-  <iframe 
-    src="https://sdsugeo.maps.arcgis.com/apps/mapviewer/index.html?webmap=03a105c611bb40fd801a96e7ea25dc63"
-    title="Vendor Locations Map">
-  </iframe>
+  <h1>Berkeley Fire Vendor Locations Map</h1>
+  <!-- ✅ REPLACED iframe with arcgis-embedded-map -->
+  <arcgis-embedded-map
+    style="height: 600px; width: 100%; max-width: 1000px; display: block; margin: 0 auto;"
+    item-id="03a105c611bb40fd801a96e7ea25dc63"
+    theme="dark"
+    heading-enabled
+    share-enabled
+    center="-96.46266732357171,39.8947397536921"
+    scale="36978595.474472"
+    portal-url="https://sdsugeo.maps.arcgis.com">
+  </arcgis-embedded-map>
 </div>
 
-<div id="dashboard" class="tab" style="
-  background-color: #1c1c1c;
-  border-radius: 8px;
-  box-shadow: 0 4px 20px rgba(0,0,0,0.4);
-  text-align: center;
-">
-  <h1 style="font-size: 2.5em; margin-top: 0; color: #ffcc00;">Fiscal Year 24–25 Spending Dashboard</h1>
+<div id="vendors" class="tab">
+  <h1>List of FY24-25 Vendors by Category and Total Amount Spent</h1>
+  <div class="tableauPlaceholder" id="vendorTableauViz" style="position: relative; margin-top: 30px; border-radius: 8px; overflow: hidden; box-shadow: 0 2px 12px rgba(0,0,0,0.6);">
+    <noscript>
+      <a href='#'>
+        <img alt='Vendor List' src='https://public.tableau.com/static/images/Fi/FireSpendingFY24-25Dashboard/Dashboard2/1.png' style='border: none' />
+      </a>
+    </noscript>
+    <object class='tableauViz' style='display:none;'>
+      <param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F'/>
+      <param name='embed_code_version' value='3'/>
+      <param name='site_root' value=''/>
+      <param name='name' value='FireSpendingFY24-25Dashboard/Dashboard2'/>
+      <param name='tabs' value='no'/>
+      <param name='toolbar' value='yes'/>
+      <param name='static_image' value='https://public.tableau.com/static/images/Fi/FireSpendingFY24-25Dashboard/Dashboard2/1.png'/>
+      <param name='animate_transition' value='yes'/>
+      <param name='display_static_image' value='yes'/>
+      <param name='display_spinner' value='yes'/>
+      <param name='display_overlay' value='yes'/>
+      <param name='display_count' value='yes'/>
+      <param name='language' value='en-US'/>
+    </object>
+  </div>
+
+  <script type='text/javascript'>
+  var divElement = document.getElementById('vendorTableauViz');
+  var vizElement = divElement.getElementsByTagName('object')[0];
+  if (divElement.offsetWidth > 800) {
+    vizElement.style.width = '1000px';
+    vizElement.style.height = '1200px'; // taller
+  } else if (divElement.offsetWidth > 500) {
+    vizElement.style.width = '100%';
+    vizElement.style.height = '1200px'; // taller
+  } else {
+    vizElement.style.width = '100%';
+    vizElement.style.height = '1800px'; // taller on small screens
+  }
+  var scriptElement = document.createElement('script');
+  scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';
+  vizElement.parentNode.insertBefore(scriptElement, vizElement);
+</script>
+</div>
+
+
+
+<div id="dashboard" class="tab" style="background-color: #1c1c1c; border-radius: 8px; box-shadow: 0 4px 20px rgba(0,0,0,0.4); text-align: center;">
+  <h1 style="font-size: 2.5em; margin-top: 0; color: #ffffff;">Berkeley Fire Department - Fiscal Year 2024-2025 Dashboard</h1>
 
   <div class='tableauPlaceholder' id='viz1752596449670' style='position: relative; margin-top: 30px; border-radius: 8px; overflow: hidden; box-shadow: 0 2px 12px rgba(0,0,0,0.6);'>
     <noscript>
@@ -184,32 +232,63 @@
   </script>
 </div>
 
-<div id="about" class="tab" style="
-  border-radius: 8px;
-  text-align: center;
-">
-  <img src="swikriti.jpg" alt="Swikriti Joshi" style="width: 150px; height: 150px; border-radius: 50%; object-fit: cover; border: 3px solid #ffcc00; margin-bottom: 20px;">
-  <h2 style="margin: 10px 0; font-size: 1.8em; color: #ffffff;">Swikriti Joshi</h2>
-  <p style="margin: 5px 0; font-size: 1.1em;">Big Data Analytics</p>
-  <p style="margin: 5px 0; font-size: 1.1em;">San Diego State University — Graduate Student</p>
-  <p style="margin: 5px 0; font-size: 1.1em;">
-    <a href="https://www.linkedin.com/in/swikritijoshi" target="_blank" 
-   style="color: #f4ec09; text-decoration: font-weight: bold;">
-  LinkedIn: www.linkedin.com/in/swikritijoshi
-</a>
-  </p>
-  <p style="margin: 5px 0; font-size: 1.1em; color: #ddd;">
-    Email: <a href="mailto:sjoshi2639@sdsu.edu" style="color: #ffffff; text-decoration: none;">sjoshi2639@sdsu.edu</a>
-<br><br><br><br>
-My data-driven research initiative focuses on the Berkeley Fire Department’s purchasing activity for Fiscal Year 2024-2025. The project explores real procurement data to identify all active vendors the department worked with during the fiscal year. Through detailed analysis, the project uncovers spending patterns, vendor relationships, and category-level trends.
-    <br><br>
-My goal is to provide actionable insights that can support more strategic decision-making and budget planning in future fiscal years. By making this information accessible and transparent, I aim to empower city planners, financial analysts, and community stakeholders with a clearer understanding of how public safety funds are allocated and spent.
-<br><br>
-Explore the data, understand the trends, and join me in building a smarter approach to municipal budgeting.
-  </p>
+<div id="about" class="tab" style="border-radius: 8px; text-align: center; position: relative; overflow: hidden;">
 
-</p>
+  <!-- Backdrop banner -->
+  <div style="
+    background-image: url('firetruck.jpg');
+    background-size: cover;
+    background-position: center;
+    height: 260px;
+    position: relative;
+  ">
+    <div style="
+      background: rgba(0, 0, 0, 0.4);
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      top: 0; left: 0;
+    "></div>
+  </div>
+
+  <!-- Profile photo overlapping backdrop and content -->
+  <img src="swikriti.jpg" alt="Swikriti Joshi"
+    style="
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 3px solid #ffffff;
+      position: relative;
+      top: -75px; /* overlap backdrop */
+      background: #000;
+      margin-bottom: -80px; /* ✅ reduce space below image */
+    ">
+
+  <!-- Content below -->
+  <div style="padding: 30px; margin-top: -10px;"> <!-- ✅ tighten spacing above name -->
+    <h2 style="margin: 0 0 10px 0; font-size: 1.8em; color: #ffffff;">Swikriti Joshi</h2>
+    <p style="margin: 5px 0; font-size: 1.1em;">Graduate Student</p>
+    <p style="margin: 5px 0; font-size: 1.1em;">San Diego State University - Big Data Analytics</p>
+    <p style="margin: 5px 0; font-size: 1.1em;">
+      <a href="https://www.linkedin.com/in/swikritijoshi" target="_blank" style="color: #2782d2; font-weight: bold;">
+        LinkedIn: www.linkedin.com/in/swikritijoshi
+      </a>
+    </p>
+    <p style="margin: 5px 0; font-size: 1.1em; color: #ddd;">
+      Email: <a href="mailto:sjoshi2639@sdsu.edu" style="color: #ffffff; text-decoration: none;">sjoshi2639@sdsu.edu</a>
+      <br><br><br><br>
+      My data-driven research initiative focuses on the Berkeley Fire Department’s purchasing activity for Fiscal Year 2024-2025, using real procurement data that I personally managed during my time working in the department’s Accounting Division. This analysis identifies all active vendors the department engaged with throughout the year and uncovers key spending patterns, vendor relationships, and category-level trends.
+      <br><br>
+      The goal is to deliver actionable insights that support smarter budget planning and more strategic decision-making in future fiscal years. By making this information transparent and easy to understand, I aim to help department heads and division managers gain a clearer picture of how public safety funds are allocated and spent. Explore the data, discover the trends, and join me in building a more informed approach to municipal budgeting.
+      
+    </p>
+  </div>
+
 </div>
+
+</div>
+
 
 </body>
 </html>
